@@ -1,0 +1,30 @@
+```python
+# Web Scraping / API Interaction
+# https://jsonplaceholder.typicode.com/
+
+import requests
+
+url = "https://jsonplaceholder.typicode.com/posts/1"
+
+# Send a GET request to the URL
+response = requests.get(url)
+
+# Check if the request was successful
+if response.status_code == 200:
+    print("Information GET")
+    print(response.json())
+else:
+    print("Error")
+```
+
+### Simple Explanation
+
+- `import requests` → imports the Python library used to send HTTP requests.
+- `url` → contains the API endpoint we want to access.
+- `requests.get(url)` → sends a **GET request** to the server.
+- `response.status_code` → checks the HTTP response status.
+- `200` → means the request was successful.
+- `response.json()` → converts the JSON response into Python data and displays it.
+
+**Example:** You can change `/posts/1` to other endpoints such as `/users/1`, `/comments/1`, or `/todos/1` to retrieve different data.
+``` 
