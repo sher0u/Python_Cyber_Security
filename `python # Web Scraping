@@ -1,15 +1,17 @@
-```python
+```markdown
 # Web Scraping / API Interaction
+
+## GET Request
+
+```python
 # https://jsonplaceholder.typicode.com/
 
 import requests
 
 url = "https://jsonplaceholder.typicode.com/posts/1"
 
-# Send a GET request to the URL
 response = requests.get(url)
 
-# Check if the request was successful
 if response.status_code == 200:
     print("Information GET")
     print(response.json())
@@ -17,14 +19,42 @@ else:
     print("Error")
 ```
 
-### Simple Explanation
+### Explanation
 
-- `import requests` → imports the Python library used to send HTTP requests.
-- `url` → contains the API endpoint we want to access.
-- `requests.get(url)` → sends a **GET request** to the server.
-- `response.status_code` → checks the HTTP response status.
-- `200` → means the request was successful.
-- `response.json()` → converts the JSON response into Python data and displays it.
+- `requests.get(url)` → sends a GET request.
+- `response.status_code` → checks the HTTP status.
+- `200` → request successful.
+- `response.json()` → converts the response to Python data.
 
-**Example:** You can change `/posts/1` to other endpoints such as `/users/1`, `/comments/1`, or `/todos/1` to retrieve different data.
-``` 
+Change `/posts/1` to `/users/1`, `/comments/1`, `/todos/1`, etc.
+
+---
+
+## POST Request
+
+```python
+# https://jsonplaceholder.typicode.com/
+
+import requests
+
+url = "https://jsonplaceholder.typicode.com/posts"
+
+data = {
+    "body": "Kader",
+    "title": "test",
+    "userId": 1
+}
+
+response = requests.post(url, data)
+
+print("Status code:", response.status_code)
+print(response.json())
+```
+
+### Explanation
+
+- `requests.post(url, data)` → sends data to the API.
+- `data` → information sent to the server.
+- `response.status_code` → shows the request status.
+- `response.json()` → displays the server response.
+```
